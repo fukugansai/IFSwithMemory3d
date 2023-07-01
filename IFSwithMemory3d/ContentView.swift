@@ -56,7 +56,7 @@ struct ContentView: View {
                     let modelEntityMesh = MeshResource.generateBox(size: SIMD3<Float>(siz, siz, siz))
                     let meshModels = modelEntityMesh.contents.models
 
-                    // モデルの名前を取得する。
+                    // モデルの名前を取得する。後で使う
                     var m1:MeshResource.Model?
                     for mm in meshModels {
                         m1 = mm
