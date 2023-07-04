@@ -21,10 +21,10 @@ struct ContentView: View {
                     // Add the initial RealityKit content
                     let siz:Float = 0.002
 
-                    // ねっ、行列の初期化
+                    // 行列の初期化
                     var m = [[Int]](repeating: [Int](repeating: 0, count: 8), count: 8)
 
-                    // ねっ、その行列のいち部分を１以上の値に設定しなおす。n個までええ！
+                    // その行列のいち部分を１以上の値に設定しなおす。n個まで
                     let maxCountUp = 36
                     var countUp = 0
                     while countUp < maxCountUp {
@@ -36,8 +36,9 @@ struct ContentView: View {
                         }
                     }
 
-                    // それでねっ、ありえるすべての変換列をね、するのよね
+                    // それでねっ、ありえるすべての変換列をね、設定するのよね
                     var v:[(h:Int, ar:[Int])] = [(1,[1]),(1,[2]),(1,[3]),(1,[4]),(1,[5]),(1,[6]),(1,[7]),(1,[8])]
+                    // hは使ってないですね。もはや…
                     let maxDepth = 6
                     for _ in 0 ..< maxDepth {
                         var nv:[(h:Int, ar:[Int])] = []
@@ -109,7 +110,9 @@ struct ContentView: View {
                         //tcc = tcc * tcc
                         tc.models = meshModels
                         let transformedMesh = try! MeshResource.generate(from: tc)
-                        let modelb = ModelEntity(mesh: transformedMesh, materials: [SimpleMaterial(color: UIColor(red:1.1-0.9*tcc, green:0.7-1.0*tcc, blue: 0.1, alpha:1.0), isMetallic: false)])
+                        let 黒体輻射 = UIColor(red:1.1-0.9*tcc, green:0.7-1.0*tcc, blue: 0.1, alpha:1.0)
+                        let 新緑 = UIColor(red:0.5 - 0.5*tcc, green:1.0-0.7*tcc, blue: 0.1, alpha:1.0)
+                        let modelb = ModelEntity(mesh: transformedMesh, materials: [SimpleMaterial(color: 新緑, isMetallic: false)])
                         content.add(modelb)
                         count+=1
                     }
